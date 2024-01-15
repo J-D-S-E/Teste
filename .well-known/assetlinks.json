@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.netlify.controle_da_lampada.twa",
+        "sha256_cert_fingerprints": ["44:A2:92:04:C4:20:81:8A:34:16:BF:6A:1F:B9:FC:8A:2C:7D:58:68:A1:FD:F3:18:00:46:15:3D:D3:88:B3:26"]
+      }
+    }]
