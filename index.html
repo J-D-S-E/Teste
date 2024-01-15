@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json" />
+	
+	<title>Controle da Lâmpada</title>
+	
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .botaoControle {
+            display: block;
+            margin: 0 auto; /* Centraliza os botões horizontalmente */
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 200px; /* Define a largura dos botões (ajuste conforme necessário) */
+        }
+
+        #botaoLigar {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #botaoLigar:hover {
+            background-color: #45a049;
+        }
+
+        #botaoDesligar {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #botaoDesligar:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+<button class="botaoControle" id="botaoLigar" onclick="chamarAPI('ligar_lampada')">Ligar Lâmpada</button>
+<button class="botaoControle" id="botaoDesligar" onclick="chamarAPI('desligar_lampada')">Desligar Lâmpada</button>
+
+<script>
+    function chamarAPI(acao) {
+        fetch(`http://127.0.0.1:5000/${acao}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Resposta da API:', data);
+                // Adicione aqui qualquer lógica adicional após ligar ou desligar a lâmpada
+            })
+            .catch(error => {
+                console.error('Erro:', error.message);
+            });
+    }
+</script>
+
+</body>
+</html>
