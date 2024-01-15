@@ -52,7 +52,7 @@
 
 <script>
     function chamarAPI(acao) {
-        fetch(`http://192.168.0.111:5000/${acao}`)
+        fetch(`http://127.0.0.1:5000/${acao}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Erro na requisição: ${response.status}`);
